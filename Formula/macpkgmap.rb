@@ -6,12 +6,29 @@ class Macpkgmap < Formula
   license "MIT"
   depends_on "python@3.14"
 
+  resource "catalog" do
+    url "https://tomck.github.io/macpkg-catalog/catalog.json"
+    sha256 "c442b67c6c2752fcfb0aff1fb8abcc7cfd16448f0d438739c1906462948475f2"
+  end
+
   def install
     libexec.install "macpkg_catalog"
+    (share/"macpkgmap").mkpath
+    resource("catalog").stage do
+      (share/"macpkgmap"/"catalog.json").install "catalog.json"
+    end
     (bin/"macpkgmap").write <<~EOS
       #!/bin/sh
       export PYTHONPATH="#{libexec}${PYTHONPATH:+:$PYTHONPATH}"
-      exec "#{Formula["python@3.14"].opt_bin}/python3.14" -m macpkg_catalog "$@"
+      snapshot="#{share}/macpkgmap/catalog.json"
+      case "$1" in
+        lookup|relations|search|popularity|export)
+          exec "#{Formula["python@3.14"].opt_bin}/python3.14" -m macpkg_catalog "$@" --snapshot "$snapshot"
+          ;;
+        *)
+          exec "#{Formula["python@3.14"].opt_bin}/python3.14" -m macpkg_catalog "$@"
+          ;;
+      esac
     EOS
     chmod 0755, bin/"macpkgmap"
   end
