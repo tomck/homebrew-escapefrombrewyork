@@ -2,15 +2,17 @@ class Brew2port < Formula
   include Language::Python::Virtualenv
   desc "Safe Homebrew to MacPorts migration planner"
   homepage "https://github.com/tomck/brew2port"
-  url "https://github.com/tomck/brew2port/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "c4fbd03688dcf63171f442d4061a7a9d96a00f79ec1c0ddd47ec63c806a8cd01"
+  url "https://github.com/tomck/brew2port/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "d674bf44677b76cd97bff2bbb6eaba355575afcd906c1347ea0dcb5a9a91baff"
   license "MIT"
   depends_on "python@3.14"
   depends_on "tomck/escapefrombrewyork/macpkgmap"
 
   resource "macpkg-migrate-core" do
-    url "https://files.pythonhosted.org/packages/source/m/macpkg-migrate-core/macpkg_migrate_core-0.3.0.tar.gz"
-    sha256 "ecadeea8c550f302381b7bc8c625c2138558b9afab17e63ef3ac8e7ab8c2a530"
+    # No 0.5.0 sdist on PyPI yet (publish runs on GitHub Release); use the tag
+    # tarball until the release is published.
+    url "https://github.com/tomck/macpkg-migrate-core/archive/refs/tags/v0.5.0.tar.gz"
+    sha256 "52f7d39bf7e89d8b9337fe8e4dd76d3c0722a74e6218f726be22039a5f20da61"
   end
 
   def install
