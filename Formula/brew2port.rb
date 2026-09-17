@@ -9,10 +9,8 @@ class Brew2port < Formula
   depends_on "tomck/escapefrombrewyork/macpkgmap"
 
   resource "macpkg-migrate-core" do
-    # No 0.5.0 sdist on PyPI yet (publish runs on GitHub Release); use the tag
-    # tarball until the release is published.
-    url "https://github.com/tomck/macpkg-migrate-core/archive/refs/tags/v0.5.0.tar.gz"
-    sha256 "52f7d39bf7e89d8b9337fe8e4dd76d3c0722a74e6218f726be22039a5f20da61"
+    url "https://files.pythonhosted.org/packages/16/57/395326459de3ecc8c56777647031ae17a4f4a388a3ab23593512f8a4cf40/macpkg_migrate_core-0.5.0.tar.gz"
+    sha256 "3d4152d7972147cf2c37720b0a682351947cda1990bdf837c49ebd8d7f1baebe"
   end
 
   def install
