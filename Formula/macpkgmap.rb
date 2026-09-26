@@ -1,14 +1,14 @@
 class Macpkgmap < Formula
   desc "Neutral catalog of macOS packages and cross-manager relationships"
   homepage "https://github.com/tomck/macpkg-catalog"
-  url "https://github.com/tomck/macpkg-catalog/archive/refs/tags/macpkgmap-v0.5.0.tar.gz"
-  sha256 "9b43cf2e9d1b52c86c82ff1689f6056ddf97bee253e55be0e2435269590b5767"
+  url "https://github.com/tomck/macpkg-catalog/archive/refs/tags/macpkgmap-v0.6.0.tar.gz"
+  sha256 "1bff5bc5bfd8caae80b659031f36f89d7a90f3641df9b5c9dc37456734893ccc"
   license "MIT"
   depends_on "python@3.14"
 
   resource "catalog" do
     url "https://tomck.github.io/macpkg-catalog/catalog.json"
-    sha256 "739d272d0b51a75c9153cb2fad54588573e757c436b44e5b38633d9476eea3c2"
+    sha256 "40a8300d77d06273efb53b3b6b2b614bde110c6c5d5942d44b6737b8cc4dae8b"
   end
 
   def install
