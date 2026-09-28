@@ -1,17 +1,17 @@
 class MacpkgMigrate < Formula
   desc "Safe multi-manager Homebrew, MacPorts, and Fink migration planner"
   homepage "https://github.com/tomck/macpkg-migrate"
-  url "https://github.com/tomck/macpkg-migrate/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "81b1bafa306497c63c79953ab11cb30d5af1ab16900ba78faab762c868c87e36"
+  url "https://github.com/tomck/macpkg-migrate/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "4c5255925b69cb67b42fdb123ed8568990b85e25ba2fd8c02188b740c9db2938"
   license "MIT"
   depends_on "python@3.14"
   depends_on "tomck/escapefrombrewyork/macpkgmap"
 
-  # v0.6.0 imports macpkg_migrate_core (no longer vendored); stage it next
+  # v0.7.0 imports macpkg_migrate_core (no longer vendored); stage it next
   # to the app.
   resource "macpkg-migrate-core" do
-    url "https://files.pythonhosted.org/packages/37/b7/867d8cbb7cb9403ac45b6dfd113cbc691d41feed39d22262da00b11638ad/macpkg_migrate_core-0.6.0.tar.gz"
-    sha256 "123a2bbb8a5df3d7febd4fe170ae6023f10f283e80cb595b9df1d0d9bb8a63ed"
+    url "https://files.pythonhosted.org/packages/58/b3/ce374d033d08ed34a3cb5c41c883d904c57199dfbfbc3f49b314baa3e6ce/macpkg_migrate_core-0.7.0.tar.gz"
+    sha256 "272c3f4dd2cdda3f60a21b748c977ef67d7faab6f49e4fd3c85ebb5d0de4405b"
   end
 
   def install
